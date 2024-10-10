@@ -1,0 +1,94 @@
+body{
+    background-image: url('img/background.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    font-family: "Afacad Flux", sans-serif;
+}
+.search{
+    text-align: center;
+    margin-top:40px;
+    padding:20px;
+    background-color:rgb(130, 170, 177) ; 
+    margin-left:40%;
+    margin-right: 40%;
+    display: flex;
+}
+#location{
+    width:25px;
+    height:25px;
+}
+.search input{
+    border-radius: 15px 15px 15px 15px;
+    padding:5px;
+    border:none;
+    outline: none;
+    background-color:rgb(130, 170, 177) ; 
+}
+.search button{
+    background-color:rgb(121, 153, 158) ; 
+    border:1px solid black;
+    border-radius: 10px 10px 10px 10px;
+    outline: none;
+    padding:7px;
+}
+.search input:focus {
+    outline: none; 
+    border: none;                
+}
+.search button:hover{
+    cursor: pointer;
+
+}
+.result{
+    text-align: center;
+    border:1px solid rgb(147, 191, 209);
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top:40px;
+    margin-left:20%;
+    margin-right:20%;
+    display: none;
+    
+}
+.result p{
+    color:rgb(64, 64, 65)
+}
+.result h3{
+    text-transform: capitalize;
+}
+.result{
+    display: flex;
+}
+.forward{
+
+    width:34%;
+}
+.weather{
+    width:33%;
+    text-align: center;
+}
+.back{
+    width:33%;
+    
+}
+#back_btn, #forward_btn{
+    border:none;
+    display:none;
+    background-color: rgba(247, 247, 247, 0.5);
+    margin-top:35%;
+    border-radius: 20px 20px 20px 20px;
+}
+#back_btn:hover, #forward_btn:hover{
+    background-color: rgba(216, 213, 213, 0.5);
+}
+#forward_btn{
+    float:right;
+}
+#img{
+    display: none; 
+    margin: 10px auto 0 auto; 
+    width: 80px;
+    height: 80px 
+}
+#temp{
+    font-size:30px
+}

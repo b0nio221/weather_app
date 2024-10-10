@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="search">
+        <img src="img/location.png" alt="location_ico" id="location">
+        <input type="text" name="city" id="city" placeholder="Enter a city...">
+        <button id="search_btn">Search</button>
+    </div>
+    <div class="result">
+        <div class="back">
+            <button id="back_btn">
+                <pre>&lt;----- the day before</pre>
+            </button>    
+        </div>
+        <div class="weather">
+            <p id="day"></p>
+            <h3 id="name"></h3>
+            <p id="temp"></p>
+            <p id="desc"></p>
+            <img src="" alt="" id="img">
+        </div>
+        <div class="forward">
+            <button id="forward_btn">
+                <pre>next day -----&gt;</pre>
+            </button>
+        </div>
+    </div>
+    <script src="dist/app.js"></script>     
+</body>
+</html>
