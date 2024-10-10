@@ -11,7 +11,9 @@ search_btn.addEventListener("click", () => {
     fetch(apiurl)
     .then(response => {
         if (!response.ok) {
+            alert("Nie podano poprawnego miasta");
             throw new Error("Błąd sieci!");
+            
         }
         return response.json(); 
     })
