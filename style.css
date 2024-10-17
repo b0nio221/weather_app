@@ -9,9 +9,11 @@ body{
     margin-top:40px;
     padding:20px;
     background-color:rgb(130, 170, 177) ; 
-    margin-left:40%;
+    margin-left:43%;
     margin-right: 40%;
     display: flex;
+    animation: fadeIn 0.5s ease forwards;
+    width: 13%;
 }
 #location{
     width:25px;
@@ -44,10 +46,11 @@ body{
     border:1px solid rgb(147, 191, 209);
     background-color: rgba(255, 255, 255, 0.5);
     margin-top:40px;
-    margin-left:20%;
+    margin-left:35%;
     margin-right:20%;
+    height:0;
     display: none;
-    
+    width:0;
 }
 .result p{
     color:rgb(64, 64, 65)
@@ -73,15 +76,21 @@ body{
 #back_btn, #forward_btn{
     border:none;
     display:none;
-    background-color: rgba(247, 247, 247, 0.5);
+    font-size: 400%;
     margin-top:35%;
     border-radius: 20px 20px 20px 20px;
+    padding:0;
+    height: 0;
 }
 #back_btn:hover, #forward_btn:hover{
     background-color: rgba(216, 213, 213, 0.5);
 }
 #forward_btn{
     float:right;
+    margin-right: 20px;
+}
+#back_btn{
+    margin-left: 20px;
 }
 #img{
     display: none; 
@@ -92,3 +101,49 @@ body{
 #temp{
     font-size:30px
 }
+@keyframes slideLeft {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.slide-left {
+    animation: slideLeft 0.5s ease-in-out forwards;
+}
+
+.slide-right {
+    animation: slideRight 0.5s ease-in-out forwards;
+}
+.ani {
+    height: 250px;
+    width: 250px;
+    margin: 0 auto;
+    animation-name: stretch;
+    animation-duration: 1.5s; 
+    animation-timing-function: ease-out; 
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-fill-mode: forwards; /* Zapewnia, że animacja kończy się na ostatnim klatce */
+    animation-play-state: running;
+}
+
+@keyframes stretch {
+    0% {
+        height: 0;
+        width:10%;
+        transform: scale(0.20); /* Początkowy rozmiar */
+        background-color: rgb(158, 199, 205);
+        border-radius: 100%;
+    }
+    100% {
+        height: 30%;
+        transform: scale(1.0); /* Końcowy rozmiar dopasowany do rozmiaru div */
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+  

@@ -19,12 +19,21 @@ search_btn.addEventListener("click", () => {
         const back_btn = document.querySelector("#back_btn");
         const forward_btn = document.querySelector("#forward_btn");
         const img = document.querySelector('#img');
-        back_btn.style.display = "block";
-        forward_btn.style.display = "block";
-        img.style.display = "block";
+        result.style.height = "30%";
+        result.style.width = "30%";
+        back_btn.style.display = "none";
+        forward_btn.style.display = "none";
+        img.style.display = "none";
         forecastData = data.list;
         currentIndex = 0;
-        displayForecast(currentIndex);
+        result.classList.add("ani");
+        result.addEventListener("animationend", () => {
+            back_btn.style.display = "block";
+            forward_btn.style.display = "block";
+            img.style.display = "block";
+            displayForecast(currentIndex);
+            result.classList.remove("ani");
+        });
     });
 });
 function displayForecast(index) {
@@ -69,20 +78,32 @@ function displayForecast(index) {
     forward_btn.disabled = index === forecastData.length - 1;
 }
 document.querySelector("#back_btn").addEventListener("click", () => {
-    if (currentIndex > 0) {
-        currentIndex = currentIndex - 2;
-        displayForecast(currentIndex);
-    }
-    else {
-        alert("Nie ma wcześniejszej prognozy.");
-    }
+    const result_element = document.querySelector(".result");
+    result_element.classList.add("slide-left");
+    result_element.addEventListener("animationend", function handleAnimation() {
+        result_element.classList.remove("slide-left");
+        if (currentIndex > 0) {
+            currentIndex -= 2;
+            displayForecast(currentIndex);
+        }
+        else {
+            alert("Nie ma wcześniejszej prognozy.");
+        }
+        result_element.removeEventListener("animationend", handleAnimation);
+    });
 });
 document.querySelector("#forward_btn").addEventListener("click", () => {
-    if (currentIndex < forecastData.length - 1) {
-        currentIndex = currentIndex + 2;
-        displayForecast(currentIndex);
-    }
-    else {
-        alert("Nie ma następnej prognozy.");
-    }
+    const result_element = document.querySelector(".result");
+    result_element.classList.add("slide-right");
+    result_element.addEventListener("animationend", function handleAnimation() {
+        result_element.classList.remove("slide-right");
+        if (currentIndex < forecastData.length - 1) {
+            currentIndex += 2;
+            displayForecast(currentIndex);
+        }
+        else {
+            alert("Nie ma następnej prognozy.");
+        }
+        result_element.removeEventListener("animationend", handleAnimation);
+    });
 });
