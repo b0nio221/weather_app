@@ -12,9 +12,13 @@ body{
     margin-left:43%;
     margin-right: 40%;
     display: flex;
-    animation: fadeIn 0.5s ease forwards;
+    animation:backInUp;
+    animation-duration: 2s;
+    
     width: 13%;
 }
+
+
 #location{
     width:25px;
     height:25px;
@@ -93,7 +97,7 @@ body{
     margin-left: 20px;
 }
 #img{
-    display: none; 
+    display: none;
     margin: 10px auto 0 auto; 
     width: 80px;
     height: 80px 
@@ -112,38 +116,44 @@ body{
 }
 
 .slide-left {
-    animation: slideLeft 0.5s ease-in-out forwards;
+    animation: lightSpeedInRight;
+    animation-duration: 1s;
 }
 
 .slide-right {
-    animation: slideRight 0.5s ease-in-out forwards;
+    animation: lightSpeedInLeft;
+    animation-duration: 1s;
 }
 .ani {
     height: 250px;
     width: 250px;
-    margin: 0 auto;
-    animation-name: stretch;
-    animation-duration: 1.5s; 
-    animation-timing-function: ease-out; 
-    animation-delay: 0;
-    animation-direction: alternate;
-    animation-fill-mode: forwards; /* Zapewnia, że animacja kończy się na ostatnim klatce */
-    animation-play-state: running;
+    margin: 40px auto;
+    animation: backInDown;
+    animation-duration:1s;
 }
-
 @keyframes stretch {
     0% {
         height: 0;
-        width:10%;
+        width:0;
         transform: scale(0.20); /* Początkowy rozmiar */
         background-color: rgb(158, 199, 205);
         border-radius: 100%;
     }
+    25%{
+        height: 10%;
+        width:5%;
+        transform: scale(0.20); /* Początkowy rozmiar */
+    }
     100% {
-        height: 30%;
-        transform: scale(1.0); /* Końcowy rozmiar dopasowany do rozmiaru div */
+        height: 100%;
+        width:30%;
+        transform: scale(0.8); /* Końcowy rozmiar dopasowany do rozmiaru div */
         background-color: rgba(255, 255, 255, 0.5);
     }
 }
-
+header{
+    text-align: center;
+    animation:jackInTheBox;
+    animation-duration: 1s;
+}
   

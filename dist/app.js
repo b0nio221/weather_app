@@ -79,31 +79,31 @@ function displayForecast(index) {
 }
 document.querySelector("#back_btn").addEventListener("click", () => {
     const result_element = document.querySelector(".result");
-    result_element.classList.add("slide-left");
-    result_element.addEventListener("animationend", function handleAnimation() {
-        result_element.classList.remove("slide-left");
-        if (currentIndex > 0) {
-            currentIndex -= 2;
-            displayForecast(currentIndex);
-        }
-        else {
-            alert("Nie ma wcześniejszej prognozy.");
-        }
-        result_element.removeEventListener("animationend", handleAnimation);
-    });
+    if (currentIndex > 0) {
+        currentIndex -= 1;
+        result_element.classList.add("slide-left");
+        displayForecast(currentIndex);
+        result_element.addEventListener("animationend", function handleAnimation() {
+            result_element.classList.remove("slide-left");
+            result_element.removeEventListener("animationend", handleAnimation);
+        });
+    }
+    else {
+        alert("Nie ma wcześniejszej prognozy.");
+    }
 });
 document.querySelector("#forward_btn").addEventListener("click", () => {
     const result_element = document.querySelector(".result");
-    result_element.classList.add("slide-right");
-    result_element.addEventListener("animationend", function handleAnimation() {
-        result_element.classList.remove("slide-right");
-        if (currentIndex < forecastData.length - 1) {
-            currentIndex += 2;
-            displayForecast(currentIndex);
-        }
-        else {
-            alert("Nie ma następnej prognozy.");
-        }
-        result_element.removeEventListener("animationend", handleAnimation);
-    });
+    if (currentIndex < forecastData.length - 1) {
+        currentIndex += 1;
+        result_element.classList.add("slide-right");
+        displayForecast(currentIndex);
+        result_element.addEventListener("animationend", function handleAnimation() {
+            result_element.classList.remove("slide-right");
+            result_element.removeEventListener("animationend", handleAnimation);
+        });
+    }
+    else {
+        alert("Nie ma następnej prognozy.");
+    }
 });
